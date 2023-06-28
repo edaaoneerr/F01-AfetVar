@@ -1,0 +1,13 @@
+com.edaaoneerr.guvenli_bina_degerlendirme.app-jetified-window-1.0.0-beta04-0 /Users/edaaoneerr/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/res
+com.edaaoneerr.guvenli_bina_degerlendirme.app-jetified-annotation-experimental-1.1.0-1 /Users/edaaoneerr/.gradle/caches/transforms-3/6c0c163cc77ae6c91f9f7dfcd179c29c/transformed/jetified-annotation-experimental-1.1.0/res
+com.edaaoneerr.guvenli_bina_degerlendirme.app-core-1.6.0-2 /Users/edaaoneerr/.gradle/caches/transforms-3/7e9df2ac2213a6bd3cef0f2f27870d79/transformed/core-1.6.0/res
+com.edaaoneerr.guvenli_bina_degerlendirme.app-jetified-window-java-1.0.0-beta04-3 /Users/edaaoneerr/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/res
+com.edaaoneerr.guvenli_bina_degerlendirme.app-debug-4 /Users/edaaoneerr/Desktop/F01-afet_var/android/app/src/debug/res
+com.edaaoneerr.guvenli_bina_degerlendirme.app-main-5 /Users/edaaoneerr/Desktop/F01-afet_var/android/app/src/main/res
+com.edaaoneerr.guvenli_bina_degerlendirme.app-pngs-6 /Users/edaaoneerr/Desktop/F01-afet_var/build/app/generated/res/pngs/debug
+com.edaaoneerr.guvenli_bina_degerlendirme.app-resValues-7 /Users/edaaoneerr/Desktop/F01-afet_var/build/app/generated/res/resValues/debug
+com.edaaoneerr.guvenli_bina_degerlendirme.app-rs-8 /Users/edaaoneerr/Desktop/F01-afet_var/build/app/generated/res/rs/debug
+com.edaaoneerr.guvenli_bina_degerlendirme.app-mergeDebugResources-9 /Users/edaaoneerr/Desktop/F01-afet_var/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.edaaoneerr.guvenli_bina_degerlendirme.app-mergeDebugResources-10 /Users/edaaoneerr/Desktop/F01-afet_var/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.edaaoneerr.guvenli_bina_degerlendirme.app-merged_res-11 /Users/edaaoneerr/Desktop/F01-afet_var/build/app/intermediates/merged_res/debug
+com.edaaoneerr.guvenli_bina_degerlendirme.app-packaged_res-12 /Users/edaaoneerr/Desktop/F01-afet_var/build/speech_to_text/intermediates/packaged_res/debug
