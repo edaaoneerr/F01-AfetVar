@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "681613733368",
+    "project_id": "afetvar-47b46",
+    "storage_bucket": "afetvar-47b46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681613733368:android:49bdc3f0c10d57f80cfa0d",
+        "android_client_info": {
+          "package_name": "com.edaaoneerr.guvenli_bina_degerlendirme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681613733368-82g4sdfd4buucjn803dr8pu8sm1if73e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9drb4-p7QNIq0IP4A2gRQoNJD8-vV2Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681613733368-82g4sdfd4buucjn803dr8pu8sm1if73e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

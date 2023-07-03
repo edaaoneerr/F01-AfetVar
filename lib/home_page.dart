@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:guvenli_bina_degerlendirme/safe_areas_tab.dart';
 import 'home_tab.dart';
-import 'profile_tab.dart';
-import 'safe_areas_tab.dart';
 import 'settings_tab.dart';
 import 'status_report_tab.dart';
 import 'earthquake_page.dart';

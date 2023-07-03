@@ -1,10 +1,58 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'earthquake_page.dart';
 
-class StatusReportTab extends StatelessWidget {
-  final String username = "Elif";
+class StatusReportTab extends StatefulWidget {
+  @override
+  State<StatusReportTab> createState() => _StatusReportTabState();
+}
 
+class _StatusReportTabState extends State<StatusReportTab> {
+  late String username = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUserName();
+  }
+
+  @override
+  void dispose() {
+    // Cancel active operations here
+    super.dispose();
+  }
+
+  Future<void> fetchUserName() async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      String documentId = currentUser.uid;
+
+
+      print('home tab User uid: ${FirebaseAuth.instance.currentUser!.uid}');
+      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(documentId)
+          .get();
+
+      if (userSnapshot.exists) {
+        Map<String, dynamic> userData = userSnapshot.data() as Map<String, dynamic>;
+        if (userData.containsKey('name')) {
+        }
+        if (mounted) {
+          setState(() {
+            username = userData['name'];
+
+          });
+        } else {
+          return;
+        }
+      } else {
+        print('Name field not found');
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

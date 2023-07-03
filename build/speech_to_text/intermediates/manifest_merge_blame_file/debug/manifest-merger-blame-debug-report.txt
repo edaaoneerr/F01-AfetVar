@@ -2,14 +2,11 @@
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.csdcorp.speech_to_text" >
 4
-5    <uses-sdk
-6        android:minSdkVersion="21"
-6-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml
-7        android:targetSdkVersion="21" />
-7-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml
+5    <uses-sdk android:minSdkVersion="21" />
+5-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml
+6
+7    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+7-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml:4:5-76
+7-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml:4:22-73
 8
-9    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-9-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml:4:5-76
-9-->/Users/edaaoneerr/.pub-cache/hosted/pub.dev/speech_to_text-6.2.0/android/src/main/AndroidManifest.xml:4:22-73
-10
-11</manifest>
+9</manifest>

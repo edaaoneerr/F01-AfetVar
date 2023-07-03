@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:guvenli_bina_degerlendirme/home_page.dart';
+import 'package:guvenli_bina_degerlendirme/safe_areas_tab.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class EarthquakePage extends StatefulWidget {
@@ -13,7 +15,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
   List<String> _selectedOptions = [];
   String _spokenText = '';
   bool _isListening = false;
-  String _selectedOption = '';
+  String _selectedOption1 = '';
+  String _selectedOption2 = '';
+  String _selectedOption3 = '';
+
 
   @override
   void initState() {
@@ -66,7 +71,7 @@ class _EarthquakePageState extends State<EarthquakePage> {
             ),
           ),
           child: const Text(
-            'Tehlilkedeyim',
+            'Tehlikedeyim',
             style: TextStyle(
               fontSize: 12.0,
               color: Colors.white,
@@ -117,10 +122,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
         child: RadioListTile(
           title: const Text('Evet'),
           value: 'Evet',
-          groupValue: _selectedOption,
+          groupValue: _selectedOption1,
           onChanged: (value) {
             setState(() {
-              _selectedOption = value as String;
+              _selectedOption1 = value as String;
             });
           },
         ),
@@ -130,10 +135,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
           child: RadioListTile(
             title: const Text('Hayır'),
             value: 'Hayır',
-            groupValue: _selectedOption,
+            groupValue: _selectedOption1,
             onChanged: (value) {
               setState(() {
-                _selectedOption = value as String;
+                _selectedOption1 = value as String;
               });
             },
           ),
@@ -155,10 +160,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
         child: RadioListTile(
           title: const Text('1+'),
           value: '1+',
-          groupValue: _selectedOption,
+          groupValue: _selectedOption2,
           onChanged: (value) {
             setState(() {
-              _selectedOption = value as String;
+              _selectedOption2 = value as String;
             });
           },
         ),
@@ -168,10 +173,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
           child: RadioListTile(
             title: const Text('5+'),
             value: '5+',
-            groupValue: _selectedOption,
+            groupValue: _selectedOption2,
             onChanged: (value) {
               setState(() {
-                _selectedOption = value as String;
+                _selectedOption2 = value as String;
               });
             },
           ),
@@ -180,10 +185,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
           child: RadioListTile(
             title: const Text('9+'),
             value: '9+',
-            groupValue: _selectedOption,
+            groupValue: _selectedOption2,
             onChanged: (value) {
               setState(() {
-                _selectedOption = value as String;
+                _selectedOption2 = value as String;
               });
             },
           ),
@@ -205,10 +210,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
         child: RadioListTile(
           title: const Text('Evet'),
           value: 'Evet',
-          groupValue: _selectedOption,
+          groupValue: _selectedOption3,
           onChanged: (value) {
             setState(() {
-              _selectedOption = value as String;
+              _selectedOption3 = value as String;
             });
           },
         ),
@@ -218,10 +223,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
           child: RadioListTile(
             title: const Text('Hayır'),
             value: 'Hayır',
-            groupValue: _selectedOption,
+            groupValue: _selectedOption3,
             onChanged: (value) {
               setState(() {
-                _selectedOption = value as String;
+                _selectedOption3 = value as String;
               });
             },
           ),
@@ -295,10 +300,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
                 child: RadioListTile(
                   title: const Text('Evet'),
                   value: 'Evet',
-                  groupValue: _selectedOption,
+                  groupValue: _selectedOption1,
                   onChanged: (value) {
                     setState(() {
-                      _selectedOption = value as String;
+                      _selectedOption1 = value as String;
                     });
                   },
                 ),
@@ -308,10 +313,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
                 child: RadioListTile(
                   title: const Text('Hayır'),
                   value: 'Hayır',
-                  groupValue: _selectedOption,
+                  groupValue: _selectedOption1,
                   onChanged: (value) {
                     setState(() {
-                      _selectedOption = value as String;
+                      _selectedOption1 = value as String;
                     });
                   },
                 ),
@@ -321,7 +326,7 @@ class _EarthquakePageState extends State<EarthquakePage> {
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Bulunduğunuz yerde 50+ kişinni güvenli kalması mümkün mü (Arabada iseniz, hayırı işaretleyiniz.)?',
+                'Bulunduğunuz yerde 50+ kişinin güvenli kalması mümkün mü? (Arabada iseniz, "Hayır"ı işaretleyiniz)',
                 style: TextStyle(
                   fontSize: 14.0,
                   fontWeight: FontWeight.bold,
@@ -333,10 +338,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
               child: RadioListTile(
                 title: const Text('Evet'),
                 value: 'Evet',
-                groupValue: _selectedOption,
+                groupValue: _selectedOption2,
                 onChanged: (value) {
                   setState(() {
-                    _selectedOption = value as String;
+                    _selectedOption2 = value as String;
                   });
                 },
               ),
@@ -346,10 +351,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
                 child: RadioListTile(
                   title: const Text('Hayır'),
                   value: 'Hayır',
-                  groupValue: _selectedOption,
+                  groupValue: _selectedOption2,
                   onChanged: (value) {
                     setState(() {
-                      _selectedOption = value as String;
+                      _selectedOption2 = value as String;
                     });
                   },
                 ),
@@ -371,10 +376,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
               child: RadioListTile(
                 title: const Text('Evet'),
                 value: 'Evet',
-                groupValue: _selectedOption,
+                groupValue: _selectedOption3,
                 onChanged: (value) {
                   setState(() {
-                    _selectedOption = value as String;
+                    _selectedOption3 = value as String;
                   });
                 },
               ),
@@ -384,10 +389,10 @@ class _EarthquakePageState extends State<EarthquakePage> {
                 child: RadioListTile(
                   title: const Text('Hayır'),
                   value: 'Hayır',
-                  groupValue: _selectedOption,
+                  groupValue: _selectedOption3,
                   onChanged: (value) {
                     setState(() {
-                      _selectedOption = value as String;
+                      _selectedOption3 = value as String;
                     });
                   },
                 ),
@@ -589,6 +594,33 @@ class _EarthquakePageState extends State<EarthquakePage> {
 
   void submitForm() {
     // Perform form submission logic here
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Bildirim'),
+          content: Text('Bildiriminiz acil durum merkezlerine iletildi. Sizi daha kolay bulmamız adına lütfen daha fazla bildirim göndermeyin. Yalnızca, sağlıklı şekilde çıktıysanız tekrar gönderin.'), // Add any additional content if needed
+          actions: <Widget>[
+            TextButton(
+              child: Text('Kapat'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                // Close the pop-up
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
+
+
 }
 

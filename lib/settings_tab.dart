@@ -1,26 +1,85 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SettingsTab extends StatefulWidget {
-  final String username = "Elif";
-
   @override
   _SettingsTabState createState() => _SettingsTabState();
 }
 
 class _SettingsTabState extends State<SettingsTab> {
+  late String username = '';
+  late String userAddress = '';
+  late String userSurname = '';
+  late String userBloodType = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUserData();
+  }
+
+  Future<void> fetchUserData() async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      String documentId = currentUser.uid;
+
+      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(documentId)
+          .get();
+
+      if (userSnapshot.exists) {
+        Map<String, dynamic> userData =
+        userSnapshot.data() as Map<String, dynamic>;
+        if (userData.containsKey('name')) {
+          setState(() {
+            username = userData['name'];
+          });
+        } else {
+          username = '';
+        }
+        if (userData.containsKey('address')) {
+          setState(() {
+            userAddress = userData['address'];
+          });
+        } else {
+          userAddress = '';
+        }
+        if (userData.containsKey('surname')) {
+          setState(() {
+            userSurname = userData['surname'];
+          });
+        } else {
+          userSurname = '';
+        }
+        if (userData.containsKey('bloodType')) {
+          setState(() {
+            userBloodType = userData['bloodType'];
+          });
+        } else {
+          userBloodType = '';
+        }
+      } else {
+        print('User data not found');
+      }
+    }
+  }
+
   String _selectedImage = 'assets/images/profile.png'; // Replace with your own image path
   TextEditingController _nameController = TextEditingController();
   TextEditingController _addressController = TextEditingController();
-  TextEditingController _phoneNumberController = TextEditingController();
+  TextEditingController _surnameController = TextEditingController();
+  TextEditingController _bloodTypeController = TextEditingController();
 
   @override
   void dispose() {
     _nameController.dispose();
     _addressController.dispose();
-    _phoneNumberController.dispose();
+    _surnameController.dispose();
     super.dispose();
   }
 
@@ -39,7 +98,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   children: [
                     Expanded(
                       child: Text(
-                        'Tekrar hoşgeldin, ${widget.username}',
+                        'Merhaba, $username',
                         style: const TextStyle(
                           fontFamily: 'SFPro',
                           fontSize: 17,
@@ -81,7 +140,7 @@ class _SettingsTabState extends State<SettingsTab> {
               ),
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric( horizontal: 36.0, vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -98,7 +157,15 @@ class _SettingsTabState extends State<SettingsTab> {
                       TextFormField(
                         controller: _nameController,
                         decoration: const InputDecoration(
-                          labelText: 'İsmin ve Soyismin',
+                          labelText: 'İsmin',
+                        ),
+                        style: const TextStyle(fontSize: 15.0),
+                      ),
+                      const SizedBox(height: 10.0),
+                      TextFormField(
+                        controller: _surnameController,
+                        decoration: const InputDecoration(
+                          labelText: 'Soyismin',
                         ),
                         style: const TextStyle(fontSize: 15.0),
                       ),
@@ -112,15 +179,7 @@ class _SettingsTabState extends State<SettingsTab> {
                       ),
                       const SizedBox(height: 10.0),
                       TextFormField(
-                        controller: _phoneNumberController,
-                        decoration: const InputDecoration(
-                          labelText: 'Telefon Numaran',
-                        ),
-                        style: const TextStyle(fontSize: 15.0),
-                      ),
-                      const SizedBox(height: 10.0),
-                      TextFormField(
-                        controller: _phoneNumberController,
+                        controller: _bloodTypeController,
                         decoration: const InputDecoration(
                           labelText: 'Kan Grubun',
                         ),
@@ -129,7 +188,7 @@ class _SettingsTabState extends State<SettingsTab> {
                       const SizedBox(height: 10.0),
                       ElevatedButton(
                         onPressed: () {
-                          _showSuccessDialog(context);
+                          updateUserData();
                         },
                         style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
                         child: const Text('Kaydet'),
@@ -179,6 +238,39 @@ class _SettingsTabState extends State<SettingsTab> {
         );
       },
     );
+  }
+
+  void updateUserData() {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      String documentId = currentUser.uid;
+
+      Map<String, dynamic> updatedData = {};
+
+      if (_nameController.text.isNotEmpty && _nameController.text != username) {
+        updatedData['name'] = _nameController.text;
+      }
+      if (_addressController.text.isNotEmpty && _addressController.text != userAddress) {
+        updatedData['address'] = _addressController.text;
+      }
+      if (_surnameController.text.isNotEmpty && _surnameController.text != userSurname) {
+        updatedData['surname'] = _surnameController.text;
+      }
+      if (_bloodTypeController.text.isNotEmpty && _bloodTypeController.text != userBloodType) {
+        updatedData['bloodType'] = _bloodTypeController.text;
+      }
+
+      FirebaseFirestore.instance
+          .collection('users')
+          .doc(documentId)
+          .update(updatedData)
+          .then((value) {
+        _showSuccessDialog(context);
+        fetchUserData();
+      }).catchError((error) {
+        print('Failed to update user data: $error');
+      });
+    }
   }
 
   void _showSuccessDialog(BuildContext context) {
