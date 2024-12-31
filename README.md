@@ -5,5 +5,5 @@ Güvenli Bina ve Tehlike Değerlendirme Uygulaması
 Bu sayfayı kullanmanız ilgili merkezlerin sizinle ilgili bilgilere daha kolay ulaşabilmelerini sağlar."
 
 
-https://github.com/edaaoneerr/F01-AfetVar/assets/69804144/72e57b59-3269-4565-89c7-0aedbe9f3797
+https://github.com/user-attachments/assets/a2888102-433b-4cf8-9f68-6803217adcd1
 
